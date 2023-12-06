@@ -7,11 +7,11 @@
 - Site web et/ou appli android ? Site web dans un premier temps, dev beaucoup plus rapide.
 - Interface utilisateurs, active directory, etc ?
 
-## Modele de donnees
+## Modèle de données
 
 # table: flores
 
-- Il ne faut pas mettre l'id en auto-increment, il sera rempli par les administrateurs a chaque creation.
+- Il ne faut pas mettre l'id en auto-increment, il sera rempli par les administrateurs à chaque creation.
 
 | \*id: int | nom_latin | nom_classique | est_publique |
 | --------- | --------- | ------------- | ------------ |
