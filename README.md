@@ -18,7 +18,7 @@
 | 1         | Hydrangea | Hortensia     | Oui          |
 | 2         | Syringa   | Lilas         | Non          |
 
-# table M2M: flores_images
+# table m2m: flores_images
 
 | \*flore_id | \*file_id                            |
 | ---------- | ------------------------------------ |
