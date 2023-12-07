@@ -11,7 +11,7 @@
 
 ## Modèle de données
 
-# table: users
+### table: users
 
 - Il ne faut pas mettre l'id en auto-increment, il sera rempli par les administrateurs à chaque creation.
 
@@ -20,28 +20,28 @@
 | 1          | formateur1@lyceenature.com | Laffite | Bernard | \*\*\*\*\*\*\*\* | 1       |
 | 2          | eleve1@lyceenature.com     | Baschet | Claire  | \*\*\*\*\*\*\*\* | 2       |
 
-# table: roles
+### table: roles
 
 | \*id: id | name           |
 | -------- | -------------- |
 | 1        | Administrateur |
 | 2        | Apprenant      |
 
-# table: flores
+### table: flores
 
 | \*id: int | nom_latin | nom_classique | est_publique |
 | --------- | --------- | ------------- | ------------ |
 | 1         | Hydrangea | Hortensia     | Oui          |
 | 2         | Syringa   | Lilas         | Non          |
 
-# table m2m: flores_images
+### table m2m: flores_images
 
 | \*flore_id | \*file_id                            |
 | ---------- | ------------------------------------ |
 | 1          | ef8ffae9-0262-4e74-9c94-2c856ae580e5 |
 | 2          | f2254027-2764-48a2-b8bf-953b9821266b |
 
-# table: files
+### table: files
 
 | \*id: uuid                           | nom     |
 | ------------------------------------ | ------- |
