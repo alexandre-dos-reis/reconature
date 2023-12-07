@@ -2,16 +2,32 @@
 
 ## Infrastructure
 
-- Langage serveur ?
-- Quelle base de donnees SQL ? PostGres, Mysql, MariaDb, SqlServer ?
+- Langage serveur ? NodeJS
+- Quelle base de donnees SQL ? PostGres, Mysql, MariaDb, SqlServer ? PostGres
 - Site web et/ou appli android ? Site web dans un premier temps, dev beaucoup plus rapide.
-- Interface utilisateurs, active directory, etc ?
+- Authentification utilisateurs :
+  - A terme, via [educagri](https://auth.educagri.fr/cas/login).
+  - Les apprenants a terme seront dans l'obligation de creer un compte directement sur l'appli.
 
 ## Modèle de données
 
-# table: flores
+# table: users
 
 - Il ne faut pas mettre l'id en auto-increment, il sera rempli par les administrateurs à chaque creation.
+
+| \*id: uuid | email                      | Nom     | Prenom  | mot_de_passe     | role_id |
+| ---------- | -------------------------- | ------- | ------- | ---------------- | ------- |
+| 1          | formateur1@lyceenature.com | Laffite | Bernard | \*\*\*\*\*\*\*\* | 1       |
+| 2          | eleve1@lyceenature.com     | Baschet | Claire  | \*\*\*\*\*\*\*\* | 2       |
+
+# table: roles
+
+| \*id: id | name           |
+| -------- | -------------- |
+| 1        | Administrateur |
+| 2        | Apprenant      |
+
+# table: flores
 
 | \*id: int | nom_latin | nom_classique | est_publique |
 | --------- | --------- | ------------- | ------------ |
@@ -35,3 +51,7 @@
 ## Ressources
 
 - [Plantes latin / fr](https://tecfa.unige.ch/perso/lombardf/calvin/teaching/botanic-latin-fr/conversion-fr-latin.htm)
+
+## Charte graphique
+
+- https://www.lyceenature.com
