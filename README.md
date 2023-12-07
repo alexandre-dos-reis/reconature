@@ -13,7 +13,7 @@
 
 ### table: users
 
-- Il ne faut pas mettre l'id en auto-increment, il sera rempli par les administrateurs à chaque creation.
+- Ne pas mettre l'_*id*_ en auto-increment, il sera rempli par les administrateurs à chaque creation.
 
 | \*id: uuid | email                      | Nom     | Prenom  | mot_de_passe     | role_id |
 | ---------- | -------------------------- | ------- | ------- | ---------------- | ------- |
