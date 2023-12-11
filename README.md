@@ -29,7 +29,7 @@
 
 ### table: flores
 
-| \*id: int | nom_latin | nom_classique | est_publique |
+| \*id: int | nom_scientifique | nom_commun | est_publique |
 | --------- | --------- | ------------- | ------------ |
 | 1         | Hydrangea | Hortensia     | Oui          |
 | 2         | Syringa   | Lilas         | Non          |
