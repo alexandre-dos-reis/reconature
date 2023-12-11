@@ -1,0 +1,15 @@
+{
+  "name": "app",
+  "version": "1.0.50",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts"
+  },
+  "dependencies": {
+    "@directus/sdk": "^13.0.2",
+    "elysia": "latest"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "module": "src/index.js"
+}
