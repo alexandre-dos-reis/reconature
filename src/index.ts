@@ -12,7 +12,7 @@ const app = new Elysia()
     if (flore) {
       return flore;
     } else {
-      return "404";
+      return { msg: "not found !" };
     }
   })
   .listen(3000);
