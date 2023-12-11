@@ -25,7 +25,7 @@ services:
   directus:
     image: directus/directus:10.8.2
     ports:
-      - 18055:8055
+      - "${DIRECTUS_PORT}:8055"
     networks:
       - reconature
     volumes:
