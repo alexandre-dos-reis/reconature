@@ -29,12 +29,14 @@
 
 ### table: flores
 
-| \*id: int | nom_scientifique | nom_commun | est_publique |
-| --------- | --------- | ------------- | ------------ |
-| 1         | Hydrangea | Hortensia     | Oui          |
-| 2         | Syringa   | Lilas         | Non          |
+| \*id: int | nom_scientifique | nom_commun              | cultivar ? | genre  | est_publique |
+| --------- | ---------------- | ----------------------- | ---------- | ------ | ------------ |
+| 1         | Stolonifera      | Cornouiller             | Flaviramea | Cornus | Oui          |
+| 2         | matsudana        | Saule pleureur tortueux | ‘Tortuosa’ | Salix  | Non          |
 
 ### table m2m: flores_images
+
+- Pas besoin d'avoir cette feature pour le mvp.
 
 | \*flore_id | \*file_id                            |
 | ---------- | ------------------------------------ |
