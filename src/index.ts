@@ -2,10 +2,10 @@ import { Elysia } from "elysia";
 import { createDirectus, rest, readItems } from "@directus/sdk";
 
 interface Flore {
-  scientific_name: "Matsudana";
-  common_name: "Saule pleureur tortueux";
-  gender: "Salix";
-  identification: 2;
+  scientific_name: string;
+  common_name: string;
+  gender: string;
+  identification: number;
 }
 
 interface Schema {
