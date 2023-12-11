@@ -1,26 +1,19 @@
 import { Elysia } from "elysia";
-import { createDirectus, rest, readItems } from "@directus/sdk";
 import { ENV_VARS } from "./config/env-vars";
-
-interface Flore {
-  identification: number;
-  scientific_name: string;
-  common_name: string;
-  gender: string;
-}
-
-interface Schema {
-  flores: Flore[];
-}
-
-const client = createDirectus<Schema>(ENV_VARS.DIRECTUS_ENDPOINT).with(rest());
+import { getFloresByIdentification } from "./directus/flores";
 
 // 3 ecrans: search, One Flore and a 404
 const app = new Elysia()
   .get("/", async () => {
-    const flores = await client.request(readItems("flores"));
-
-    console.log({ flores });
+    // handle input and redirect ...
+  })
+  .get("/flores/:id", async ({ params: { id } }) => {
+    const flore = await getFloresByIdentification({ identification: id });
+    if (flore) {
+      return flore;
+    } else {
+      return "404";
+    }
   })
   .listen(3000);
 
