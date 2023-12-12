@@ -1,12 +1,6 @@
 import { createDirectus, rest, readItems, readItem } from "@directus/sdk";
 import { ENV_VARS } from "../config/env-vars";
-
-interface Flore {
-  identification: number;
-  scientific_name: string;
-  common_name: string;
-  gender: string;
-}
+import { Flore } from "./types";
 
 interface Schema {
   flores: Flore[];

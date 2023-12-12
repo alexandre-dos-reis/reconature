@@ -2,10 +2,11 @@
   "name": "app",
   "version": "1.0.50",
   "scripts": {
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun run --watch src/index.tsx"
   },
   "dependencies": {
     "@directus/sdk": "^13.0.2",
+    "@elysiajs/html": "^0.7.3",
     "elysia": "latest"
   },
   "devDependencies": {
