@@ -1,4 +1,3 @@
-import {} from "@elysiajs/html";
 export const Base = ({ children, ...bodyProps }: JSX.HtmlBodyTag) => (
   <html lang="fr">
     <head>
