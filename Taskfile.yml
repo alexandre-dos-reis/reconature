@@ -2,14 +2,26 @@ version: 3
 
 silent: true
 
+vars:
+  css_input: ./src/main.css
+  css_output: ./public/assets/main.css
+
 tasks:
   dev:
-    deps: ["directus:up", "bun:dev"]
+    deps: ["directus:up", "bun:dev", "assets:watch"]
 
   directus:up:
     cmds:
       - docker compose up
 
+  assets:watch:
+    cmds:
+      - bunx postcss {{.css_input}} --output {{.css_output}} --watch
+
+  assets:build:
+    cmds:
+      - bunx postcss {{.css_input}} --output {{.css_output}} --minify
+
   bun:dev:
     cmds:
-      - bun run dev
+      - bun run --watch src/index.tsx

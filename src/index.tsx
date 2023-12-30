@@ -3,12 +3,13 @@ import { html } from "@elysiajs/html";
 import { getFloresByIdentification } from "./directus/flores";
 import { HomePage } from "./views/pages/home";
 import { FlorePage } from "./views/pages/flore";
-import { FloreNotFoundPage } from "./views/pages/flore-not-found";
 import { z } from "zod";
+import staticPlugin from "@elysiajs/static";
 
 const floreIdKey = "flore-id";
 const minChar = 1;
 const maxChar = 6;
+const queryError = "error";
 
 const schema = z.object({
   [floreIdKey]: z
@@ -21,7 +22,8 @@ const schema = z.object({
 
 const app = new Elysia()
   .use(html())
-  .all("/", async ({ request, set, body }) => {
+  .use(staticPlugin({ assets: "public" }))
+  .all("/", async ({ request, set, body, query }) => {
     let error: Record<string, Array<string>> | null = null;
 
     if (request.method === "POST") {
@@ -37,7 +39,7 @@ const app = new Elysia()
 
     return (
       <HomePage
-        error={error?.[floreIdKey][0]}
+        error={query[queryError] ?? error?.[floreIdKey][0]}
         name={floreIdKey}
         inputValue={(body as Record<string, any>)?.[floreIdKey]}
         minChar={minChar}
@@ -45,12 +47,16 @@ const app = new Elysia()
       />
     );
   })
-  .get("/flores/:id", async ({ params: { id } }) => {
+  .get("/flores/:id", async ({ params: { id }, set }) => {
     const flore = await getFloresByIdentification({ identification: id });
     if (flore) {
       return FlorePage(flore);
     } else {
-      return FloreNotFoundPage();
+      set.status = "Not Found";
+      set.redirect = `/?${queryError}=${encodeURIComponent(
+        "Elément non trouvé !",
+      )}`;
+      return;
     }
   })
   .listen(3000);
